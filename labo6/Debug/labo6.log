@@ -1,0 +1,7 @@
+﻿  main.cpp
+c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(384): error C2065: 'p' : identificateur non déclaré
+c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(384): warning C4346: 'map<Tclef,Tvaleur>::noeud' : le nom dépendant n'est pas un type
+  c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(384): note: préfixer avec 'typename' pour indiquer un type
+c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(384): error C2062: type 'int' inattendu
+c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(421): error C2143: erreur de syntaxe : absence de ';' avant '{'
+c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(421): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
