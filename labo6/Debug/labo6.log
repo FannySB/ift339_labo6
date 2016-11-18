@@ -1,7 +1,13 @@
 ﻿  main.cpp
-c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(384): error C2065: 'p' : identificateur non déclaré
-c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(384): warning C4346: 'map<Tclef,Tvaleur>::noeud' : le nom dépendant n'est pas un type
-  c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(384): note: préfixer avec 'typename' pour indiquer un type
-c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(384): error C2062: type 'int' inattendu
-c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(421): error C2143: erreur de syntaxe : absence de ';' avant '{'
-c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\maph.h(421): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
+c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\mapg.h(389): warning C4018: '>=' : incompatibilité signed/unsigned
+  c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\mapg.h(384): note: lors de la compilation de la fonction membre '<Inconnu>' de la classe <Inconnu>
+  c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\mapg.h(373): note: voir la référence à l'instanciation de la fonction modèle 'void map<int,std::string>::afficher(map<int,std::string>::noeud *,int,std::vector<std::string,std::allocator<_Ty>> &,double &,int &) const' en cours de compilation
+          with
+          [
+              _Ty=std::string
+          ]
+  c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\mapg.h(366): note: lors de la compilation de la fonction membre '<Inconnu>' de la classe <Inconnu>
+  c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\main.cpp(13): note: voir la référence à l'instanciation de la fonction modèle 'void map<int,std::string>::afficher(void) const' en cours de compilation
+  c:\users\fanny\dropbox\universite\3sessionautomne16\ift339-structuresdedonnees\labo6\labo6\main.cpp(12): note: voir la référence à l'instanciation de la classe modèle 'map<int,std::string>' en cours de compilation
+  labo6.vcxproj -> C:\Users\fanny\Dropbox\UNIVERSITE\3sessionAutomne16\IFT339-StructuresDeDonnees\labo6\Debug\labo6.exe
+  labo6.vcxproj -> C:\Users\fanny\Dropbox\UNIVERSITE\3sessionAutomne16\IFT339-StructuresDeDonnees\labo6\Debug\labo6.pdb (Full PDB)

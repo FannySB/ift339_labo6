@@ -381,7 +381,7 @@ void map<Tclef,Tvaleur>::afficher()const{
 
 
 template <typename Tclef, typename Tvaleur>
-void map<Tclef,Tvaleur>::afficher(map<Tclef,Tvaleur>::noeud* p,int niveau,std::vector<std::string>& barres,double& total,int& max)const{
+void typename map<Tclef,Tvaleur>::afficher(typename map<Tclef,Tvaleur>::noeud* p,int niveau,std::vector<std::string>& barres,double& total,int& max)const{
     using namespace std;
     if(p==0)return;
     total+=niveau;
@@ -418,7 +418,7 @@ void map<Tclef,Tvaleur>::afficher(map<Tclef,Tvaleur>::noeud* p,int niveau,std::v
 }
 
 template <typename Tclef, typename Tvaleur>
-void map<Tclef,Tvaleur>::afficher_barres(std::vector<std::string>& barres,int n)const{
+void typename map<Tclef,Tvaleur>::afficher_barres(std::vector<std::string>& barres,int n)const{
     for(int i=0;i<n;++i)std::cout<<barres[i];
 }
 

@@ -77,10 +77,14 @@ void map<Tclef,Tvaleur>::iterator::reculer(noeud*& p){
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::transferer_vers_la_droite(noeud*& p){
+	
 }
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::transferer_vers_la_gauche(noeud*& p){
+	bool test;
+	test = verifier_poids();
+//	std::cout << test << std::endl;
 }
 
 template <typename Tclef, typename Tvaleur>
