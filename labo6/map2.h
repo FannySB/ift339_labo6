@@ -72,23 +72,48 @@ void map<Tclef,Tvaleur>::iterator::reculer(noeud*& p){
 
 
 ///////////////////////////////////////////////////////////////////////////
-// equilibre
+// equilibretransferer_vers_la_droite
 
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::transferer_vers_la_droite(noeud*& p){
+    std::cout << "transferer_vers_la_droite" << std::endl;
+    noeud *parent = p->PARENT;
+    if (parent != nullptr && parent->DROITE != nullptr && (p->POIDS*3) > parent->DROITE->POIDS) {
+        rotation_gauche_droite(parent);
+    }
 }
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::transferer_vers_la_gauche(noeud*& p){
+    std::cout << "transferer_vers_la_gauche" << std::endl;
+    noeud *parent = p->PARENT;
+    if (parent != nullptr && parent->GAUCHE != nullptr && (p->POIDS*3) > parent->GAUCHE->POIDS) {
+        rotation_droite_gauche(parent);
+    }
 }
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::rotation_gauche_droite(noeud*& p){
+    // WIP
+    std::cout << "rotation_gauche_droite" << std::endl;
+    noeud *parent = p->PARENT;
+    noeud *gauche = p->GAUCHE;
+    noeud *temp = p->GAUCHE;
+    if (gauche != nullptr && gauche->DROITE != nullptr && gauche->GAUCHE != nullptr) {
+        noeud *gaucheGauche = gauche->GAUCHE;
+        noeud *gaucheDroite = gauche->DROITE;
+        if (gaucheDroite != nullptr && gaucheGauche != nullptr && gaucheDroite > gaucheGauche) {
+            rotation_gauche_droite(gauche);
+        }
+    }
+
+
 }
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::rotation_droite_gauche(noeud*& p){
+    std::cout << "rotation_droite_gauche" << std::endl;
 }
 
 
