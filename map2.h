@@ -16,7 +16,7 @@ template <typename Tclef, typename Tvaleur>
 typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::lower_bound(const Tclef& c)const {
 	// DJDUBE : NEED TO TEST IF THIS WORKS EVERYTIME
 	noeud* p = RACINE();
-	noeud* lastNotLess = nullptr;
+	noeud* lastNotLess = APRES;
 	Tclef key = p->CONTENU->first;
 	while (p != nullptr) {
 		if (c < key) {
@@ -37,9 +37,6 @@ typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::lower_bound(const Tc
 			break;
 		}
 		key = p->CONTENU->first;
-	}
-	if (lastNotLess == nullptr){
-		lastNotLess = APRES;
 	}
 	return iterator(lastNotLess);
 
@@ -87,18 +84,16 @@ template <typename Tclef, typename Tvaleur>
 void map<Tclef, Tvaleur>::transferer_vers_la_droite(noeud*& p) {
 	std::cout << "transferer_vers_la_droite : " << p->CONTENU->first << std::endl;
 
-	if (p->POIDS > 3) {
-		if (p->DROITE != nullptr && p->GAUCHE->POIDS > (p->DROITE->POIDS * 3)) {
-			if (p->GAUCHE->DROITE != nullptr
-				&& p->GAUCHE->GAUCHE != nullptr
-				&& p->GAUCHE->DROITE->POIDS >= ((p->GAUCHE->GAUCHE->POIDS * 2))) {
-				rotation_droite_gauche(p->GAUCHE);
-			}
-			rotation_gauche_droite(p);
+//	if (p->POIDS > 3) {
+	if (p->DROITE != nullptr && p->GAUCHE->POIDS > (p->DROITE->POIDS * 3)) {
+		if (p->GAUCHE->DROITE != nullptr
+			&& p->GAUCHE->GAUCHE != nullptr
+			&& p->GAUCHE->DROITE->POIDS >= ((p->GAUCHE->GAUCHE->POIDS * 2))) {
+			rotation_droite_gauche(p->GAUCHE);
 		}
-		else if (p->DROITE == nullptr) {
-			rotation_gauche_droite(p);
-		}
+		rotation_gauche_droite(p);
+	}else if (p->DROITE == nullptr && p->POIDS > 3) {
+		rotation_gauche_droite(p);
 	}
 
 }
@@ -106,18 +101,16 @@ void map<Tclef, Tvaleur>::transferer_vers_la_droite(noeud*& p) {
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::transferer_vers_la_gauche(noeud*& p){
-	if (p->POIDS > 3) {
-		if (p->GAUCHE != nullptr && p->DROITE->POIDS > (p->GAUCHE->POIDS * 3)) {
-			if (p->DROITE->GAUCHE != nullptr
-				&& p->DROITE->DROITE != nullptr
-				&& p->DROITE->GAUCHE->POIDS >= ((p->DROITE->DROITE->POIDS * 2))) {
-				rotation_gauche_droite(p->DROITE);
-			}
-			rotation_droite_gauche(p);
+	if (p->GAUCHE != nullptr && p->DROITE->POIDS > (p->GAUCHE->POIDS * 3)) {
+		if (p->DROITE->GAUCHE != nullptr
+			&& p->DROITE->DROITE != nullptr
+			&& p->DROITE->GAUCHE->POIDS >= ((p->DROITE->DROITE->POIDS * 2))) {
+			rotation_gauche_droite(p->DROITE);
 		}
-		else if (p->GAUCHE == nullptr && p->DROITE->POIDS > 3) {
-			rotation_droite_gauche(p);
-		}
+		rotation_droite_gauche(p);
+	}
+		else if (p->GAUCHE == nullptr && p->DROITE->POIDS > 3 && p->POIDS > 3) {
+		rotation_droite_gauche(p);
 	}
 
 }
@@ -143,12 +136,8 @@ void map<Tclef,Tvaleur>::rotation_gauche_droite(noeud*& p){
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::rotation_droite_gauche(noeud*& p){
-    // CAN'T ROTATE IF THE RIGHT->LEFT >= (RIGHT->RIGHT*2)-1  ------- DJDUBE : CHECK IF IT'S RIGHT!!!!!!!!
-	/*
 
-	*/
-
-    noeud *temp = p;
+	noeud *temp = p;
     p = p->DROITE;
     temp->DROITE = p->GAUCHE;
     p->GAUCHE = temp;
@@ -158,7 +147,7 @@ void map<Tclef,Tvaleur>::rotation_droite_gauche(noeud*& p){
 	if (p->GAUCHE->DROITE != nullptr) {
 		p->GAUCHE->DROITE->PARENT = p->GAUCHE;
 	}
-    
+
     balancer_poids(p);
 }
 
