@@ -398,10 +398,10 @@ void map<Tclef,Tvaleur>::afficher(map<Tclef,Tvaleur>::noeud* p,int niveau,std::v
     afficher_barres(barres,niveau);
     cout<<"---> [";
     cout<<p->CONTENU->first<<","<<p->CONTENU->second<<"] ("<<p->POIDS;
-    //cout<<", "<<p;
-    //cout<<", par="<<p->PARENT;
-    //cout<<", gau="<<p->GAUCHE;;
-    //cout<<", dro="<<p->DROITE;
+    cout<<", "<<p;
+    cout<<", par="<<p->PARENT;
+    cout<<", gau="<<p->GAUCHE;;
+    cout<<", dro="<<p->DROITE;
     cout<<")"<<endl;
     
     //si on est un enfant de droite barre a mon niveau
