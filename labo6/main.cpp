@@ -13,9 +13,12 @@ int main() {
 		testMap[i] = i;
 		testMap.afficher();
 	}
-	map<int, int>::iterator lower_bound = testMap.lower_bound(0);
+	map<int, int>::iterator lower_bound = testMap.lower_bound(-1);
+	lower_bound = testMap.lower_bound(0);
 	lower_bound = testMap.lower_bound(50);
 	lower_bound = testMap.lower_bound(100);
+	lower_bound = testMap.lower_bound(200);
+	lower_bound = testMap.lower_bound(1000);
 
 
 	testMap = map<int, int>();
@@ -24,9 +27,12 @@ int main() {
 		testMap[i] = i;
 		testMap.afficher();
 	}
+	lower_bound = testMap.lower_bound(-1);
 	lower_bound = testMap.lower_bound(0);
 	lower_bound = testMap.lower_bound(50);
 	lower_bound = testMap.lower_bound(100);
+	lower_bound = testMap.lower_bound(200);
+	lower_bound = testMap.lower_bound(1000);
 
 	testMap = map<int, int>();
 	for (size_t i = 0; i < 50; i++) {
@@ -39,14 +45,10 @@ int main() {
 		testMap[i] = i;
 		testMap.afficher();
 	}
+	lower_bound = testMap.lower_bound(-1);
 	lower_bound = testMap.lower_bound(0);
 	lower_bound = testMap.lower_bound(50);
 	lower_bound = testMap.lower_bound(100);
-
-
-
-	lower_bound = testMap.lower_bound(5);
-
-	lower_bound = testMap.lower_bound(5);
-	//std::cout << lower_bound->first << std::endl;
+	lower_bound = testMap.lower_bound(200);
+	lower_bound = testMap.lower_bound(1000);
 }

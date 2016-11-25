@@ -14,13 +14,12 @@
 
 template <typename Tclef, typename Tvaleur>
 typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::lower_bound(const Tclef& c)const {
-	// DJDUBE : NEED TO TEST IF THIS WORKS EVERYTIME // DJDUBE - ERASE
 	noeud* p = RACINE();
 	noeud* lastNotLess = APRES;
 	Tclef key = p->CONTENU->first;
 	while (c != key) {
 		if (c < key) {
-			if (p->GAUCHE == nullptr) {
+			if (p->GAUCHE == nullptr) {		
 				return iterator(p);
 			}
 			lastNotLess = p;
@@ -76,7 +75,6 @@ void map<Tclef,Tvaleur>::iterator::reculer(noeud*& p){
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef, Tvaleur>::transferer_vers_la_droite(noeud*& p) {
-	std::cout << "transferer_vers_la_droite" << std::endl;
 	noeud *pDroite = p->DROITE;
 	noeud *pGauche = p->GAUCHE;
 	noeud *pGaucheGauche = pGauche->GAUCHE;
@@ -99,7 +97,6 @@ void map<Tclef, Tvaleur>::transferer_vers_la_droite(noeud*& p) {
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::transferer_vers_la_gauche(noeud*& p){
-	std::cout << "transferer_vers_la_gauche" << std::endl;
 	noeud *pDroite = p->DROITE;
 	noeud *pGauche = p->GAUCHE;
 	noeud *pDroiteGauche = pDroite->GAUCHE;
@@ -121,7 +118,6 @@ void map<Tclef,Tvaleur>::transferer_vers_la_gauche(noeud*& p){
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::rotation_gauche_droite(noeud*& p){
-    std::cout << "rotation_gauche_droite" << std::endl;
     noeud *temp = p;
     p = p->GAUCHE;
     temp->GAUCHE = p->DROITE;
@@ -142,7 +138,6 @@ void map<Tclef,Tvaleur>::rotation_gauche_droite(noeud*& p){
 
 template <typename Tclef, typename Tvaleur>
 void map<Tclef,Tvaleur>::rotation_droite_gauche(noeud*& p){
-	std::cout << "rotation_droite_gauche : " << p->CONTENU->first << std::endl;
 	noeud *temp = p;
     p = p->DROITE;
     temp->DROITE = p->GAUCHE;
@@ -159,7 +154,6 @@ void map<Tclef,Tvaleur>::rotation_droite_gauche(noeud*& p){
     pGauche->POIDS = ((pGaucheDroite != nullptr) ? pGaucheDroite->POIDS : 0) 
     				+ ((pGaucheGauche != nullptr) ? pGaucheGauche->POIDS : 0) + 1;
     p->POIDS = ((p->DROITE != nullptr) ? p->DROITE->POIDS : 0) + pGauche->POIDS + 1;
-	std::cout << "rotation_droite_gauche2 : " << p->CONTENU->first << std::endl;
 }
 
 #endif /* map2_h */
