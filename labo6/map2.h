@@ -16,6 +16,9 @@ template <typename Tclef, typename Tvaleur>
 typename map<Tclef, Tvaleur>::iterator map<Tclef, Tvaleur>::lower_bound(const Tclef& c)const {
 	noeud* p = RACINE();
 	noeud* lastNotLess = APRES;
+	if (p == nullptr) {
+		return iterator(lastNotLess);
+	}
 	Tclef key = p->CONTENU->first;
 	while (c != key) {
 		if (c < key) {
@@ -79,7 +82,7 @@ void map<Tclef, Tvaleur>::transferer_vers_la_droite(noeud*& p) {
 	noeud *pGauche = p->GAUCHE;
 	noeud *pGaucheGauche = pGauche->GAUCHE;
 	noeud *pGaucheDroite = pGauche->DROITE;
-	if (pDroite != nullptr && pGauche->POIDS > (pDroite->POIDS * 3)) {
+	if (pDroite != nullptr && (pDroite->POIDS * 3) < pGauche->POIDS) {
 		if (pGaucheGauche == nullptr || 
 			(pGaucheDroite != nullptr && 
 				pGaucheGauche != nullptr && 
@@ -91,7 +94,6 @@ void map<Tclef, Tvaleur>::transferer_vers_la_droite(noeud*& p) {
 	} else if (pDroite == nullptr && p->POIDS > 3) {
 		rotation_gauche_droite(p);
 	}
-
 }
 
 
