@@ -1,3 +1,5 @@
+Practical homework done for ift339 - Structure de données
+
 
 
 GET CHANGES : 
